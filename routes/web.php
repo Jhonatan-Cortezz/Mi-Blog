@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// primero especifico que controlador voy a utilizar para enviarlo a la vista
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CursoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,27 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return "Bienvenido a la pagina principal";
-});
+/* esto ya  no lo necesito asi por que hare uso del controlador */
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return "Bienvenido a la pagina principal";
+// });
+Route::get('/', HomeController::class);
 
-Route::get('cursos/create', function () {
-    return "En esta pagina podras crear un curso";
-});
+/* lo pongo en array para decirle qu
+que metodo ocupe en el controller */
+Route::get('cursos/create', [CursoController::class, 'create']);
 
-Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
+Route::get('cursos/{curso}', [CursoController::class, 'show']);
 
-    if ($categoria) {
-        # code...
-        return "Bienvenido al curso de $curso de la categoria $categoria";
-    } else {
-        # code...
-        return "Bienvenido al curso de $curso";
-    }
-    
-});
-
-Route::get('cursos', function () {
-    return "Bienvenido a la pagina cursos";
-});
+Route::get('cursos', [CursoController::class, 'index']);
