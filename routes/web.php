@@ -15,5 +15,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    return "Bienvenido a la curso";
+    return "Bienvenido a la pagina principal";
+});
+
+Route::get('cursos/create', function () {
+    return "En esta pagina podras crear un curso";
+});
+
+Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
+
+    if ($categoria) {
+        # code...
+        return "Bienvenido al curso de $curso de la categoria $categoria";
+    } else {
+        # code...
+        return "Bienvenido al curso de $curso";
+    }
+    
+});
+
+Route::get('cursos', function () {
+    return "Bienvenido a la pagina cursos";
 });
