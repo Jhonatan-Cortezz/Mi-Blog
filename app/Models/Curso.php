@@ -11,5 +11,5 @@ class Curso extends Model
 
     //en caso que quiera usar este modelo para la tabla users
     // ejecuto la siguiente instruccion
-    protected $table = "users";
+    // protected $table = "users";
 }
