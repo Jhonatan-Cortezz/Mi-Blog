@@ -14,25 +14,7 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-        $curso = new Curso();
-            # code...
-        $curso->name = "Laravel";
-        $curso->descripcion = "Framework de PHP";
-        $curso->categoria = "Desarrollo web";
-        $curso->save();
-
-        $curso2 = new Curso();
-            # code...
-        $curso2->name = "Laravel";
-        $curso2->descripcion = "Framework de PHP";
-        $curso2->categoria = "Desarrollo web";
-        $curso2->save();
-
-        $curso3 = new Curso();
-            # code...
-        $curso3->name = "Laravel";
-        $curso3->descripcion = "Framework de PHP";
-        $curso3->categoria = "Desarrollo web";
-        $curso3->save();
+        /* invoco al facoty y lo lleno con 50 elementos */
+        Curso::factory(50)->create();
     }
 }
