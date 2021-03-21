@@ -25,8 +25,8 @@ Route::get('/', HomeController::class);
 
 /* lo pongo en array para decirle qu
 que metodo ocupe en el controller */
-Route::get('cursos/create', [CursoController::class, 'create']);
+Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
 
-Route::get('cursos/{curso}', [CursoController::class, 'show']);
+Route::get('cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
 
-Route::get('cursos', [CursoController::class, 'index']);
+Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
