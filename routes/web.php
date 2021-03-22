@@ -27,6 +27,9 @@ Route::get('/', HomeController::class);
 que metodo ocupe en el controller */
 Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
 
+// crea un nuevo curso, mandar datos del form a la bd
+Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store');
+
 Route::get('cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
 
 Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
