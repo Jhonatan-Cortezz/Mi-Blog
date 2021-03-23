@@ -26,6 +26,15 @@ class CursoController extends Controller
     }
 
     public function store(Request $request){
+
+        /* reglas de validacion de formulario */
+        $request->validate([
+            /* nombres de los input con regla de validacion */
+            'name' => 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required'
+        ]);
+
         $curso = new Curso();
         $curso->name = $request->name;
         $curso->descripcion = $request->descripcion;
@@ -41,6 +50,15 @@ class CursoController extends Controller
     }
 
     public function update(Request $request, Curso $curso){
+
+         /* reglas de validacion de formulario */
+         $request->validate([
+            /* nombres de los input con regla de validacion */
+            'name' => 'required|max:10',/* campo requerido con maximo de 10 caracteres */
+            'descripcion' => 'required',
+            'categoria' => 'required'
+        ]);
+
         $curso->name = $request->name;
         $curso->descripcion = $request->descripcion;
         $curso->categoria = $request->categoria;
