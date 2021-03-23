@@ -9,4 +9,7 @@
   <div class="m-4">
     <a href="{{route('cursos.index')}}" class="p-2 bg-blue-300 text-white">Volver</a>
   </div>
+  <div class="m-4">
+    <a href="{{route('cursos.edit', $curso)}}" class="p-2 bg-blue-300 text-white">Editar curo</a>
+  </div>
 @endsection
