@@ -25,10 +25,10 @@ Route::get('/', HomeController::class);
 
 /* lo pongo en array para decirle qu
 que metodo ocupe en el controller */
-Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
+// Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
 
 // crea un nuevo curso, mandar datos del form a la bd
-Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store');
+/* Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store');
 
 Route::get('cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
 
@@ -39,4 +39,7 @@ Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('curso
 Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
 
 Route::delete('cursos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
+ */
 
+//  rutas con route resource
+Route::resource('cursos', CursoController::class);
