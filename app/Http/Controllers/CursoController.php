@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
+// importo la clase para la validacion de formulario
+use App\Http\Requests\StoreCurso;
+
 class CursoController extends Controller
 {
     //este controlador administrara 3 rutas
@@ -25,15 +28,7 @@ class CursoController extends Controller
         return view('cursos.show', compact('curso'));/* el array es para pasar la variable a la vista */
     }
 
-    public function store(Request $request){
-
-        /* reglas de validacion de formulario */
-        $request->validate([
-            /* nombres de los input con regla de validacion */
-            'name' => 'required',
-            'descripcion' => 'required',
-            'categoria' => 'required'
-        ]);
+    public function store(StoreCurso $request){
 
         $curso = new Curso();
         $curso->name = $request->name;
@@ -50,14 +45,6 @@ class CursoController extends Controller
     }
 
     public function update(Request $request, Curso $curso){
-
-         /* reglas de validacion de formulario */
-         $request->validate([
-            /* nombres de los input con regla de validacion */
-            'name' => 'required|max:10',/* campo requerido con maximo de 10 caracteres */
-            'descripcion' => 'required',
-            'categoria' => 'required'
-        ]);
 
         $curso->name = $request->name;
         $curso->descripcion = $request->descripcion;
