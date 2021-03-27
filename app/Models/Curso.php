@@ -17,4 +17,8 @@ class Curso extends Model
 
     protected $guarded = [];/* lo dejo vacio pero en caso de queiro una validacion con un campo 
     debo piner el nombre del campo que no quiero enviar */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Curso;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class CursoFactory extends Factory
 {
@@ -21,9 +22,11 @@ class CursoFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->sentence();
         return [
             //definicion de todos los campos de la tabla
-            'name' => $this->faker->sentence(),/* llena el campo nombre con una oracion */
+            'name' => $name,/* llena el campo nombre con una oracion */
+            'slug' => Str::slug($name, '-'),/* a cada espacio entre palabra le agregua un guion */
             'descripcion' => $this->faker->paragraph(),/* llena el campo con parrafo */
             'categoria' => $this->faker->randomElement(['Desarrollo web', 'Diseño web'])
         ];
