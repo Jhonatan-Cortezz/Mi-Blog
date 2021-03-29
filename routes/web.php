@@ -21,7 +21,7 @@ use App\Http\Controllers\CursoController;
 //     // return view('welcome');
 //     return "Bienvenido a la pagina principal";
 // });
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 /* lo pongo en array para decirle qu
 que metodo ocupe en el controller */
@@ -43,3 +43,6 @@ Route::delete('cursos/{curso}', [CursoController::class, 'destroy'])->name('curs
 
 //  rutas con route resource
 Route::resource('cursos', CursoController::class);
+
+// este metodo para rutas solo es para mostrat contenido estatico
+Route::view('nosotros', 'nosotros')->name('nosotros');

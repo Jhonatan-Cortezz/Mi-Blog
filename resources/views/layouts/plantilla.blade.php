@@ -7,8 +7,16 @@
   {{-- inlcude tailwind cdn --}}
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <title>@yield('title')</title>
+  <style>
+    .active{
+      color: aliceblue;
+      font-weight: bold;
+      background-color: darkgray;
+    }
+  </style>
 </head>
 <body>
+  @include('layouts.partials.header')
   <!-- el contenido del h1   -->
   @yield('content')
 </body>
