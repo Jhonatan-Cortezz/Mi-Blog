@@ -1,12 +1,11 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use Illuminate\Support\Facades\Route;
 
 // primero especifico que controlador voy a utilizar para enviarlo a la vista
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CursoController;
-use App\Mail\ContactanosMailable;
-use Illuminate\Support\Facades\Mail; 
+use App\Http\Controllers\CursoController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,11 +49,8 @@ Route::resource('cursos', CursoController::class);
 Route::view('nosotros', 'nosotros')->name('nosotros');
 
 // ruta para el email
-Route::get('contactanos', function () {
-    $correo = new ContactanosMailable;
+Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
 
-    /* le paso el correo aquien voy a mandar*/
-    Mail::to('jhonatancortez708@gmail.com')->send($correo);
+// ruta para procesar el formulario y enviar el email
+Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
 
-    return "Mensaje enviado";
-});
